@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="16d70ea2-a006-480a-b907-b14cb4a9780e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Query.java" afterPath="$PROJECT_DIR$/src/Query.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/targetConnection.java" afterPath="$PROJECT_DIR$/src/targetConnection.java" />
     </list>
     <ignored path="EECS341Final.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -756,7 +754,7 @@
       <workItem from="1480965839809" duration="7160000" />
       <workItem from="1480995451833" duration="2019000" />
       <workItem from="1481029648129" duration="3522000" />
-      <workItem from="1481048742446" duration="16933000" />
+      <workItem from="1481048742446" duration="16950000" />
     </task>
     <task id="LOCAL-00001" summary="created project">
       <created>1480965938215</created>
@@ -835,11 +833,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481064882777</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="modularized design">
+      <created>1481067741720</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1481067741720</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29634000" />
+    <option name="totallyTimeSpent" value="29651000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />

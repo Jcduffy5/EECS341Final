@@ -37,12 +37,12 @@ public class targetConnection {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        this.processResults();
+
 
 
     }
 
-    public Object[] processResults() {
+    public String[][] processResults() {
         int nCol;
         List<String[]> table = new ArrayList<>();
         try {
@@ -50,20 +50,31 @@ public class targetConnection {
             while (rs.next()) {
                 String[] row = new String[nCol];
                 for (int iCol = 0; iCol < nCol; iCol++) {
-                    Object obj = rs.getObject(iCol + 1);
-                    row[iCol] = (obj == null) ? null : obj.toString();
+                    String obj = rs.getString(iCol + 1);
+                    row[iCol] = obj;
                 }
                 table.add(row);
                 for( String s : row){
-                    System.out.print(s+"  ");
+
                 }
-                System.out.println();
+
             }
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return table.toArray();
+        String[][] results = new String[table.size()][];
+        for(int x = 0; x < table.size(); x++){
+            results[x] = table.get(x);
+        }
+       /* for(int x = 0; x< results.length; x++) {
+            for (int y = 0; y < results[x].length; y++) {
+                System.out.print(results[x][y] + "                         ");
+            }
+            System.out.println();
+        }*/
+
+        return  results;
 
 
 

@@ -20,7 +20,7 @@ public class UserInterface extends JFrame implements ActionListener {
     public JTextField inputField;
     public Query query;
     public JtableHelper tableHelper;
-    public DefaultTableModel model;
+    public MyTableModel model;
     public Object[][] data = new Object[5][7];
     public String[] columns = new String[] { " ", " ", " ", " ", " ", " ", " "};
     public JTable table;
@@ -139,38 +139,32 @@ public class UserInterface extends JFrame implements ActionListener {
         if (inputField.getText() != null) {
             String input = inputField.getText();
             if (source == productButton) {
-                System.out.println("in product button");
-                //tableHelper = query.findProduct(input);
-                //model.setColumnIdentifiers(tableHelper.getHeaders());
-                model.setColumnIdentifiers(tcolumns);
+                tableHelper = query.findProduct(input);
+                model = new MyTableModel(tableHelper.getHeaders(), tableHelper.getData());
                 table.setModel(model);
-                //table = new JTable(tdata, tcolumns);
-
                 model.fireTableDataChanged();
-                table.repaint();
-                //table = new JTable(tableHelper.getData(), tableHelper.getHeaders());
             } else if (source == employeeButton) {
                 tableHelper = query.findEmp();
-                model.setColumnIdentifiers(tableHelper.getHeaders());
+                model = new MyTableModel(tableHelper.getHeaders(), tableHelper.getData());
                 table.setModel(model);
-                table = new JTable(tableHelper.getData(), tableHelper.getHeaders());
-                table.repaint();
+                model.fireTableDataChanged();
             } else if (source == stockButton) {
                 String[] strings = breakUpString(input);
                 tableHelper = query.inStock(strings[0], Integer.parseInt(strings[1]));
-                model.setColumnIdentifiers(tableHelper.getHeaders());
+                model = new MyTableModel(tableHelper.getHeaders(), tableHelper.getData());
                 table.setModel(model);
-                table = new JTable(tableHelper.getData(), tableHelper.getHeaders());
                 model.fireTableDataChanged();
             } else if (source == deptButton) {
                 tableHelper = query.deptSearch(input);
-                model.setColumnIdentifiers(tableHelper.getHeaders());
+                model = new MyTableModel(tableHelper.getHeaders(), tableHelper.getData());
                 table.setModel(model);
-                table = new JTable(tableHelper.getData(), tableHelper.getHeaders());
+                model.fireTableDataChanged();
             } else if (source == compareButton) {
                 String[] strings = breakUpString(input);
                 tableHelper = query.compareProduct(strings[0], strings[1]);
-                table = new JTable(tableHelper.getData(), tableHelper.getHeaders());
+                model = new MyTableModel(tableHelper.getHeaders(), tableHelper.getData());
+                table.setModel(model);
+                model.fireTableDataChanged();
             }
         }
     }

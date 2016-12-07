@@ -30,4 +30,9 @@ public class MyTableModel extends AbstractTableModel{
     public int getColumnCount(){
         return columnCount;
     }
+
+    @Override
+    public String getColumnName(int column) {
+        return columns[column];
+    }
 }

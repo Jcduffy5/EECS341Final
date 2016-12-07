@@ -140,6 +140,7 @@ public class UserInterface extends JFrame implements ActionListener {
             String input = inputField.getText();
             if (source == productButton) {
                 tableHelper = query.findProduct(input);
+                //model = new MyTableModel(tcolumns, tdata);
                 model = new MyTableModel(tableHelper.getHeaders(), tableHelper.getData());
                 table.setModel(model);
                 model.fireTableDataChanged();

@@ -47,9 +47,9 @@ public class Query {
     }
 
     public JtableHelper deptSearch( String dept){
-        String query = "SELECT department.deptName,r0.aisle, r0.bay " +
-                "FROM  r0, department " +
-                "WHERE  r0.deptID = department.deptID AND department.deptName LIKE '%"+dept+"%'";
+        String query = "SELECT product.prodName,r0.aisle, r0.bay " +
+                "FROM  r0, department, product " +
+                "WHERE  product.prodID = r0.prodID AND r0.deptID = department.deptID AND department.deptName LIKE '%"+dept+"%'";
         String[] headers = {"Department", "Aisle", "Bay"};
         return new JtableHelper(headers,this.establishConnection(query));
     }

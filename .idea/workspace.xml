@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="16d70ea2-a006-480a-b907-b14cb4a9780e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Query.java" afterPath="$PROJECT_DIR$/src/Query.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/UserInterface.java" afterPath="$PROJECT_DIR$/src/UserInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/targetConnection.java" afterPath="$PROJECT_DIR$/src/targetConnection.java" />
     </list>
     <ignored path="EECS341Final.iws" />
@@ -45,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Query.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Query.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Query.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
@@ -119,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="targetConnection.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="targetConnection.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/targetConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+            <state relative-caret-position="546">
+              <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -171,8 +169,8 @@
         <option value="$PROJECT_DIR$/src/MyTableModel.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3a78e239-1d96-4db1-b834-da4fcba97a61/console.sql" />
         <option value="$PROJECT_DIR$/src/UserInterface.java" />
-        <option value="$PROJECT_DIR$/src/targetConnection.java" />
         <option value="$PROJECT_DIR$/src/Query.java" />
+        <option value="$PROJECT_DIR$/src/targetConnection.java" />
       </list>
     </option>
   </component>
@@ -764,7 +762,7 @@
       <workItem from="1481132097112" duration="1427000" />
       <workItem from="1481239595217" duration="2962000" />
       <workItem from="1481245896291" duration="35000" />
-      <workItem from="1481250857339" duration="8377000" />
+      <workItem from="1481250857339" duration="9195000" />
     </task>
     <task id="LOCAL-00001" summary="created project">
       <created>1480965938215</created>
@@ -934,11 +932,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481285143475</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="rollback">
+      <created>1481293547215</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1481293547215</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47469000" />
+    <option name="totallyTimeSpent" value="48287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -996,7 +1001,8 @@
     <MESSAGE value="ui stuff" />
     <MESSAGE value="changed query&#10;" />
     <MESSAGE value="working on inserts" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on inserts" />
+    <MESSAGE value="rollback" />
+    <option name="LAST_COMMIT_MESSAGE" value="rollback" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1281,18 +1287,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/targetConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Query.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/targetConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="63" column="36" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
           <folding />
         </state>
       </provider>

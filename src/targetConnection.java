@@ -48,6 +48,7 @@ public class targetConnection {
             stmt = con.createStatement();
             stmt.executeUpdate(query);
             con.commit();
+
         } catch (SQLException e) {
             try {
                 con.rollback();
@@ -55,6 +56,13 @@ public class targetConnection {
                 e1.printStackTrace();
             }
             e.printStackTrace();
+        }
+        finally {
+            try {
+                con.setAutoCommit(true);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
 

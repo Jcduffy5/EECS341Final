@@ -11,7 +11,8 @@ public class Query {
         test.findEmp();
         test.inStock("battlefield",44109 );
         test.deptSearch("electronics");
-        test.addproduct("men's Timex Weekender", 30.00, "an affordable watch");
+        test.addproduct("mens Timex Weekender", 30.00, "an affordable watch", "accessories", 1,1,"c", 3,2 );
+
 
 
     }
@@ -36,16 +37,29 @@ public class Query {
                 "FROM product";
         String[][] temp = this.establishConnection(query);
         Integer maxID = Integer.parseInt(temp[0][0]);
-        String query = "SELECT deptID " +
-                "FROM department" +
-                "WHERE deptName LIKE '"+ deptName+"'";
+         query = "SELECT department.deptID "+
+        "FROM department "+
+        "WHERE department.deptName LIKE '%"+deptName+"%'";
          temp = this.establishConnection(query);
         Integer deptID = Integer.parseInt(temp[0][0]);
         maxID++;
-        query = "INSERT INTO product(prodID, prodName, price, specs) VALUES ("+maxID+", "+prodName+", "+price+", "+specs+")";
+        query = "SELECT * "+
+                "FROM location "+
+                "WHERE location.bay = "+bay+" AND location.aisle= '"+aisle+"' AND location.shelf=  "+ shelf;
+        temp = this.establishConnection(query);
+        query = "INSERT INTO product(prodID, prodName, price, specs) VALUES ("+maxID+", '"+prodName+"', "+price+", '"+specs+"')";
         this.insert(query);
-        query = "INSERT INTO r0 (prodID, deptID, empID, storeID, aisle, bay, shelf) VALUES ("+maxID+", "+prodName+", "+price+", "+specs+")";
+
+        query = "INSERT INTO r0 (prodID, deptID, empID, storeID, aisle, bay, shelf) VALUES ("+maxID+", "+deptID+", "+empID+", "+storeID+", '"+aisle+"', "+bay+", "+shelf+")";
+
         this.insert(query);
+        if(temp[0][0]== null){
+            query = "INSERT INTO location ( bay,aisle, shelf) VALUES ("+bay+", '"+aisle+"'," +shelf+")";
+
+            this.insert(query);
+        }
+
+
 
 
 
@@ -101,7 +115,7 @@ public class Query {
     private void insert( String query) {
         targetConnection connection = new targetConnection();
         connection.establishConnection();
-        connection.executeQuery(query);
+        connection.executeUpdate(query);
         System.out.println(System.nanoTime() - startTime);
     }
 }

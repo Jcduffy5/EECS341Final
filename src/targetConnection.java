@@ -41,6 +41,17 @@ public class targetConnection {
 
 
     }
+    public void executeUpdate(String query) {
+        try {
+            stmt = con.createStatement();
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
 
     public String[][] processResults() {
         int nCol;

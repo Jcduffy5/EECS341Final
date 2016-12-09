@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class targetConnection {
+    //fields
     Statement stmt;
     ResultSet rs;
     Connection con;
@@ -17,6 +18,10 @@ public class targetConnection {
 
     }
 
+    /**
+     * establishes the connection to the database
+     * assumption: database is available
+     */
     public void establishConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -30,6 +35,10 @@ public class targetConnection {
         }
     }
 
+    /**
+     * runs the query
+     * @param query the query to be run in a string format
+     */
     public void executeQuery(String query) {
         try {
             stmt = con.createStatement();
@@ -41,6 +50,11 @@ public class targetConnection {
 
 
     }
+
+    /**
+     * used for updates
+     * @param query contains the update statement in a string
+     */
     public void executeUpdate(String query) {
 
         try {
@@ -60,6 +74,7 @@ public class targetConnection {
         finally {
             try {
                 con.setAutoCommit(true);
+                con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -69,6 +84,12 @@ public class targetConnection {
 
     }
 
+    /**
+     * processes the results of the query
+     * places results in string matrix
+     * closes the connection
+     * @return string matrix of all results
+     */
     public String[][] processResults() {
         int nCol;
         List<String[]> table = new ArrayList<>();

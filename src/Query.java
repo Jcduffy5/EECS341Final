@@ -31,14 +31,24 @@ public class Query {
 
     }
 
-    public void addproduct(String prodName, double price, String specs){
+    public void addproduct(String prodName, double price, String specs,String deptName, int empID, int storeID, String aisle, int bay, int shelf){
         String query = "SELECT MAX(product.prodID) " +
                 "FROM product";
         String[][] temp = this.establishConnection(query);
         Integer maxID = Integer.parseInt(temp[0][0]);
+        String query = "SELECT deptID " +
+                "FROM department" +
+                "WHERE deptName LIKE '"+ deptName+"'";
+         temp = this.establishConnection(query);
+        Integer deptID = Integer.parseInt(temp[0][0]);
         maxID++;
-        query = "INSERT INTO product VALUES ("+maxID+", "+prodName+", "+price+", "+specs+")";
+        query = "INSERT INTO product(prodID, prodName, price, specs) VALUES ("+maxID+", "+prodName+", "+price+", "+specs+")";
         this.insert(query);
+        query = "INSERT INTO r0 (prodID, deptID, empID, storeID, aisle, bay, shelf) VALUES ("+maxID+", "+prodName+", "+price+", "+specs+")";
+        this.insert(query);
+
+
+
     }
 
     public JtableHelper compareProduct(String prod1, String prod2){

@@ -42,10 +42,18 @@ public class targetConnection {
 
     }
     public void executeUpdate(String query) {
+
         try {
+            con.setAutoCommit(false);
             stmt = con.createStatement();
             stmt.executeUpdate(query);
+            con.commit();
         } catch (SQLException e) {
+            try {
+                con.rollback();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
 

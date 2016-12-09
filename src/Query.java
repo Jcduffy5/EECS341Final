@@ -8,7 +8,7 @@ public class Query {
         Query test = new Query();
         test.findProduct("Lights");
         test.compareProduct("lights", "timex");
-        test.findEmp();
+        //test.findEmp(44109);
         test.inStock("battlefield",44109 );
         test.deptSearch("electronics");
         test.addproduct("mens Timex Weekender", 30.00, "an affordable watch", "accessories", 1,1,"c", 3,2 );
@@ -33,6 +33,7 @@ public class Query {
     }
 
     public void addproduct(String prodName, double price, String specs,String deptName, int empID, int storeID, String aisle, int bay, int shelf){
+
         String query = "SELECT MAX(product.prodID) " +
                 "FROM product";
         String[][] temp = this.establishConnection(query);
@@ -75,11 +76,15 @@ public class Query {
         return new JtableHelper(headers,this.establishConnection(query));
     }
 
-    public JtableHelper findEmp(){
-        startTime = System.nanoTime();
-        String query = "SELECT employee.empName, employee.phone FROM employee WHERE employee.onClock";
 
-        String[] headers = {"Name", "Work Phone Number"};
+
+
+    public JtableHelper findEmp(String zip){
+        startTime = System.nanoTime();
+        Integer zipCode = Integer.parseInt(zip);
+        String query = "SELECT DISTINCT employee.empName, store.storeName, employee.phone FROM employee, store, r0 WHERE employee.onClock AND r0.empID = employee.empID AND r0.storeID = store.storeID AND store.zipCode = "+zipCode;
+
+        String[] headers = {"Name", "Store", "Work Phone Number"};
 
         return new JtableHelper(headers,this.establishConnection(query));
     }

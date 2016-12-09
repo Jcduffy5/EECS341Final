@@ -25,46 +25,9 @@ public class UserInterface extends JFrame implements ActionListener {
     public String[] columns = new String[] { " ", " ", " ", " ", " ", " ", " "};
     public JTable table;
 
-    public Object[][] tdata = new Object[][] {
-                {1, "John", 40.0, false },
-                {2, "Rambo", 70.0, false },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true },
-                {3, "Zorro", 60.0, true }
-        };
 
-    public String[] tcolumns = new String[] {"Id", "Name", "Hourly Rate", "Part Time"};
+
+
 
     public UserInterface(){
         this.query = new Query();
@@ -145,7 +108,7 @@ public class UserInterface extends JFrame implements ActionListener {
                 table.setModel(model);
                 model.fireTableDataChanged();
             } else if (source == employeeButton) {
-                tableHelper = query.findEmp();
+                tableHelper = query.findEmp(input);
                 model = new MyTableModel(tableHelper.getHeaders(), tableHelper.getData());
                 table.setModel(model);
                 model.fireTableDataChanged();
